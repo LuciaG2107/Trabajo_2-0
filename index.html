@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebMap</title>
+
+    <!--CSS-->
+    <!--Leaflet-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <!--Leaflet.extra-markers-->
+    <link rel="stylesheet" href="/node_modules/leaflet-extra-markers/dist/css/leaflet.extra-markers.min.css">
+    <!--Leaflet Search-->
+    <link rel="stylesheet" href="/node_modules/leaflet-search/src/leaflet-search.css" />
+    <!--Leaflet ZoomBox-->
+    <link rel="stylesheet" href="/node_modules/leaflet-zoombox/L.Control.ZoomBox.css" />
+    <!--Leaflet L.Control.Sidebar-->
+    <link rel="stylesheet" href="/node_modules/leaflet-sidebar/src/L.Control.Sidebar.css" />
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!--Map-->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+    <!--Header Start-->
+    <header class="header p-3 position-absolute start-0 top-0 end-0">
+        <div class="d-flex justify-content-between align-items-center">
+            <!--icono start-->
+            <a href="home.html" class="text-decoration-none text-white fs-5 fw-bold">
+                <img src="media/icono.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+                MapWeb
+            </a>
+            <!--icono start-->
+
+            <!--navigation button start-->
+            <div>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+            </div>
+            <!--navigation button end-->
+        </div>
+    </header>
+    <!--Header End-->
+
+    <!--Flyout Navigation Start-->
+    <nav class="collapse navbar-collapse dropdown-nav" id="navbar">
+        <!--container start-->
+        <div class="dropdown-nav__container container-xxl d-flex align-items-start align-items-md-center">
+            <!--row start-->
+            <div class="row align-items-start">
+                <!--map/login start-->
+                <div class="col-12 col-sm-4 mt-4">
+                    <a href="index.html" class="row text-decoration-none">
+                        <div class="col-2 col-sm-12 mb-4">
+                            <img src="media/travel.jpg" alt="Mapa" class="img-fluid" width="553" height="746"
+                                loading="lazy">
+                        </div>
+                        <div class="col-10">
+                            <h3>Mapa interactivo</h3>
+                            <p>Guarda guarda fotos</p>
+                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <!--map end-->
+
+                <!--about us start-->
+                <div class="col-12 col-sm-4 mt-4">
+                    <a href="#" class="row text-decoration-none">
+                        <div class="col-2 col-sm-12 mb-4">
+                            <img src="media/contact.jpg" alt="about" class="img-fluid" width="553" height="746"
+                                loading="lazy">
+                        </div>
+                        <div class="col-10">
+                            <h3>Sobre nosotros y contactos</h3>
+                            <p>Find out more about our Surprising Benefits</p>
+                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <!--about us end-->
+
+                <!--Iniciar start-->
+                <div class="col-12 col-sm-4 mt-4">
+                    <a href="login.html" class="row text-decoration-none">
+                        <div class="col-2 col-sm-12 mb-4">
+                            <img src="media/login.jpg" alt="crear-cuenta" class="img-fluid" width="553" height="746"
+                                loading="lazy">
+                        </div>
+                        <div class="col-10">
+                            <h3>NO SE</h3>
+                            <p>Find out more about our Essential Nutrients</p>
+                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <!--Iniciar end-->
+            </div>
+            <!--row end-->
+
+            <!--close navigation butont start-->
+            <button class="navbar-toggler dropdown-nav__closeNavBtn" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-x"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </button>
+            <!--close navigation button end-->
+        </div>
+        <!--container end-->
+    </nav>
+    <!--Flyout Navigation End-->
+
+
+
+
+
+    <!--Sidebar Start-->
+    <div id="sidebar">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="media/fondo.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="media/fondo2viaje.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="media/friend.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!--Sidebar End-->
+
+
+
+
+    <!--Mapa Start-->
+    <div id="map"></div>
+    <!--Mapa End-->
+
+
+
+
+    <!--JS-->
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    <!--Leaflet-->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin="">
+        </script>
+    <!--Leaflet.extra-marker-->
+    <script src="/node_modules/leaflet-extra-markers/dist/js/leaflet.extra-markers.min.js"></script>
+    <!--Leaflet Search-->
+    <script src="/node_modules/leaflet-search/src/leaflet-search.js"></script>
+    <!--Leaflet Zoom-->
+    <script src="/node_modules/leaflet-zoombox/L.Control.ZoomBox.js"></script>
+    <!--Leaflet L.Control.Sidebar-->
+    <script src="/node_modules/leaflet-sidebar/src/L.Control.Sidebar.js"></script>
+    <!--<script src="js/leaflet-providers.js"></script>-->
+    <!--<script>
+        /*Creamos el mapa y lo posicionamos*/
+        var map = L.map('map').setView([40.4346352, -3.767012], 10);
+        var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 12,
+            minZoom: 3,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        /*var OpenStreetMap_DE = L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(L.map('map').setView([40.4346352, -3.767012], 10));
+        /*Creamos un marcador manual*/
+        var marker = L.marker([40.4175955964789, -3.7173034972414425]).addTo(map);
+    </script>-->
+    <!--Map-->
+    <script src="mapjs.js"></script>
+</body>
+
+</html>

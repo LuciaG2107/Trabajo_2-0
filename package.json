@@ -1,0 +1,41 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.3",
+    "leaflet": "^1.8.0",
+    "leaflet-extra-markers": "^1.2.1",
+    "leaflet-providers": "^1.13.0",
+    "leaflet-search": "^3.0.2",
+    "leaflet-sidebar": "^0.2.4",
+    "leaflet-zoombox": "^0.5.2",
+    "mariadb": "^3.0.0",
+    "mysql": "^2.18.1",
+    "pug": "^3.0.2"
+  },
+  "name": "trabajo_2-0",
+  "version": "1.0.0",
+  "description": "Proyecto de pagina web con mapa interactivo",
+  "main": "homeServidor.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon homeServidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuciaG2107/Trabajo_2-0.git"
+  },
+  "author": "Lucia Gonzalez Alfonso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuciaG2107/Trabajo_2-0/issues"
+  },
+  "homepage": "https://github.com/LuciaG2107/Trabajo_2-0#readme",
+  "devDependencies": {
+    "@types/leaflet": "^1.7.9",
+    "@types/leaflet-providers": "^1.2.1",
+    "nodemon": "2.0.16"
+  }
+}
