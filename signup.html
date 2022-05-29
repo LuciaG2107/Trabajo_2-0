@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE >
 <html>
 
 <head>
@@ -124,42 +124,31 @@
           </div>
           <!--signup logo end-->
 
-          <!--google/github start-->
-          <h5 class="auth-title">Sing up</h5>
-          <button class="btn service-btn mt-5 mb-3">
-            <i class="fab fa-google service-icon">Registrate por Google</i>
-          </button>
-          <button class="btn service-btn mb-3">
-            <i class="fab fa-github service-icon">Registrate por Github</i>
-          </button>
-          <!--google/github end-->
-
-          <hr class="separator" />
-
           <!--signup-form start-->
-          <form>
+          <form action="/registro" method="post">
             <!--email start-->
             <div class="mb-2 mt-5">
               <input type="email" class="form-control auth-input" placeholder="E-Mail Adresse"
-                aria-describedby="emailHelp" />
-              <div id="emailhelp" class="form-text input-info-text">Introduce el email.</div>
+                aria-describedby="emailHelp" name="correoUsuario" id="correoUsuario"  autocomplete="username" required />
+              <div id="emailhelp" class="form-text input-info-text"  >Introduce el email.</div>
             </div>
             <!--email end-->
 
             <!--password start-->
             <div class="mb-2">
-              <input type="password" class="form-control auth-input" placeholder="Passwort" />
+              <input type="password" class="form-control auth-input" name="contrasenna" id="contrasenna" autocomplete="new-password" placeholder="password"
+                required />
             </div>
             <!--password end-->
 
             <!--password tryagain start-->
             <div class="mb-3">
-              <input type="password" class="form-control auth-input" placeholder="Passwort tryagain" />
+              <input type="password" class="form-control auth-input" placeholder="password tryagain" autocomplete="new-password" name="confirmar_contrasenna" required />
             </div>
             <!--password tryagain end-->
 
             <!--btn sigup start-->
-            <button class="btn auth-btn mt-2 mb-4"><a href="index.html">Registrar</a></button>
+            <button class="btn auth-btn mt-2 mb-4" id="btn_agregar"><a href="./home.html">Registrar</a></button>
             <!--btn signup end-->
           </form>
           <!--signup-form end-->
@@ -174,6 +163,8 @@
   <!--Signup End-->
 
   <!--JS-->
+  <!--<script src="funciones.js"></script>-->
+  
   <!--Bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">

@@ -100,13 +100,27 @@ var sidebar = L.control.sidebar('sidebar', {
     container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
     position: 'left'
 }).addTo(map);
-
 /*setTimeout(function () {
     sidebar.show();
 }, 500);*/
-
 var marker = L.marker([40.4175955964789, -3.7173034972414425]).addTo(map).on('click', function () {
     sidebar.toggle();
+});
+
+L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
+    sidebar.toggle();
+});
+/*function onMapClick(e) {
+    var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
+        sidebar.toggle();
+    });
+}*/
+
+map.on('click', onMapClick);
+
+/**botones para guardar y eliminar imagenes */
+$('#addFoto').on('click', function(event){
+    
 });
 
 map.on('click', function () {

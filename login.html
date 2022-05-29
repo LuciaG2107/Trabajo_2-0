@@ -130,43 +130,31 @@
                     </div>
                     <!--logo end-->
 
-                    <!--google/github start-->
-                    <h5 class="auth-title">Login</h5>
-                    <button class="btn service-btn mt-5 mb-3">
-                        <i class="fab fa-google service-icon">Registrate por Google</i>
-                    </button>
-                    <button class="btn service-btn mb-3">
-                        <i class="fab fa-github service-icon">Registrate por Github</i>
-                    </button>
-                    <!--google/github end-->
-
-                    <hr class="separator" />
-
                     <!--login-form start-->
-                    <form>
+                    <form action="/index.html" method="post">
                         <!--email start-->
-                        <div class="mb-2 mt-5" >
+                        <div class="mb-2 mt-5">
                             <input type="email" class="form-control auth-input" placeholder="E-Mail Adresse"
-                                aria-describedby="emailHelp" autocomplete="username" id="correo"/>
+                                aria-describedby="emailHelp" autocomplete="username" id="correoUsuario" required />
                             <div id="emailhelp" class="form-text input-info-text">Introduce el email.</div>
                         </div>
                         <!--email end-->
 
                         <!--password start-->
-                        <div class="mb-2" >
-                            <input type="password" class="form-control auth-input" placeholder="Passwort"  autocomplete="current-password" id="contra"/>
+                        <div class="mb-2">
+                            <input type="password" class="form-control auth-input" placeholder="Passwort"
+                                autocomplete="current-password" id="contrasenna" required />
                         </div>
                         <!--password end-->
 
                         <!--btn login start-->
                         <!--href="index.html"-->
-                        <button class="btn auth-btn mt-2 mb-4" id="btn_agregar"><a >Iniciar</a></button>
+                        <button class="btn auth-btn mt-2 mb-4" id="btn_agregar" ><a>Iniciar</a></button>
                         <!--btn login end-->
                     </form>
                     <!--login-form end-->
 
-                    <p class="text mb-1"><a href="" class="text-link">Contrasña olvidada</a></p>
-                    <p class="text mb-4">¿No tienes cuenta?<a href="signup.html" class="text-link">Crea cuenta</a></p>
+                    <p class="text mb-4">¿No tienes cuenta?<a href="/signup.html" class="text-link">Crea cuenta</a></p>
                 </div>
             </div>
         </div>
@@ -174,8 +162,8 @@
     <!--Login End-->
 
     <!--JS-->
-    <!--Funciones: Login-->
-    <script src="funciones.js"></script>
+    <!--Funciones: Login -->
+    
     <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
