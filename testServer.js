@@ -6,21 +6,22 @@ var express = require("express");
 const { features } = require("process");
 const fs = require('fs').promises;
 const path = require('path');
-var app = express();
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
 
 /*Variables y constantes de Base de datos*/
 var mysql = require('mysql');
 //const database = require('./database.js');
 const session = require('express-session');
 
+/*SERVIDOR*/
+var app = express();
 var host = 'localhost';
 var port = 8080;
 
-/*SERVIDOR*/
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(express.static(__dirname));
 //app.use(express.static(path.join(__dirname,'media')));
@@ -49,19 +50,19 @@ var conectar = mysql.createConnection({
     host: 'localhost',
     port: 3306,
 });
-conectar.connect(function(error){
-    if(!!error) {
+conectar.connect(function (error) {
+    if (!!error) {
         console.log(error);
-    }else {
+    } else {
         console.log("Conectado");
     }
-})
+});
 /*Signup*/
 app.get('/signup', function (req, res) {
     fs.readFile(__dirname + "/signup.html")
         .then(contents => {
             res.setHeader("Content-Type", "text/html");
-            res.writeHead(200);
+            res.writeHead(201);
             res.end(contents);
         })
         .catch(err => {
@@ -77,37 +78,71 @@ app.post('/signup', function (req, res) {
     var contrasenna = req.body.contrasenna;
     var confirmar_contrasenna = req.body.confirmar_contrasenna;
 
-    res.write('Tu correo "' + req.body.correoUsuario + '".\n');
-    res.write('Tu contraseña "' + req.body.contrasenna + '".\n');
-
+    /*res.write('Tu correo "' + req.body.correoUsuario + '".\n');
+    res.write('Tu contraseña "' + req.body.contrasenna + '".\n');*/
+    console.log("QQQQQQ");
+    //const selectBD = () => {
+    console.log("QUE TAL?");
     //if (confirmar_contrasenna == contrasenna) {
-        conectar.connect(function (err, result, fields) {
-            if (err ) throw err;
-            var sql = "INSERT INTO usuario (correoUsuario, contrasenna) VALUES ('" + correoUsuario + "', '" + contrasenna + "')";
+    conectar.connect(function (err) {
+        //if (!err){
+        //var sql = "INSERT INTO usuario (correoUsuario, contrasenna) VALUES ('" + correoUsuario + "', '" + contrasenna + "')";
 
-            con.query(sql, function (err, result) {
-                if (err) {
-                    if (err.errno == 1062) {
-                        var sql = 'UPDATE usuario SET correoUsuario ="' + req.body.correoUsuario + '",contrasenna ="' + req.body.contrasenna + '"';
+        conectar.query("INSERT INTO usuario (correoUsuario, contrasenna) VALUES ('" + correoUsuario + "', '" + contrasenna + "')", function (err, result, fields) {
+            if (err) {
+                if (err.errno == 1062) {
+                    console.log("DENTRO DEL IF")
+                    var sql = "UPDATE usuario SET correoUsuario ='" + correoUsuario + '",contrasenna ="' + contrasenna + '"';
+                    console.log(sql);
+                    conectar.query(sql, function (err, result) {
+                        console.log(result);
+                    });
+                    res.end();
 
-                        con.query(sql, function (err, result) {
-                            if (err) throw err;
-                            console.log(result.affectedRows + " record(s) updated");
-                        });
-                    } else {
-                        throw err;
-                    }
+                } else {
+                    throw err;
+                    res.end();
                 }
-                console.log("1 record inserted");
-            });
+            }
+            console.log("1 record inserted");
+            fs.readFile(__dirname + "/index.html")
+                .then(contents => {
+                    res.setHeader("Content-Type", "text/html");
+                    res.writeHead(200);
+                    res.end(contents);
+                })
+                .catch(err => {
+                    res.writeHead(500);
+                    res.end(err);
+                    return;
+                })
         });
-    /*} else {
+        /*}else{
+            console.log(err);
+        }*/
+    });
+    //}
+    /*else {
         console.log("Contraseñas diferentes.")
     }*/
 });
 
-//login
 
+//login
+/*
+app.post('/search',function(req,res){
+    var emailId=req.body.emailIs;
+    console.log(emailId);
+      res.write('You sent the email "' + req.body.emailIs+'".\n');
+      con.connect(function(err) {
+if (err) throw err;
+con.query('SELECT * FROM userData WHERE emailId ="'+ req.body.emailIs+'"', function (err, result) {
+if (err) throw err;
+console.log(result);
+});
+});
+});
+*/
 
 app.listen(port, function () {
     console.log(`Server is running on http://${host}:${port}`);
