@@ -110,11 +110,11 @@ var marker = L.marker([40.4175955964789, -3.7173034972414425]).addTo(map).on('cl
 L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
     sidebar.toggle();
 });
-/*function onMapClick(e) {
+function onMapClick(e) {
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
         sidebar.toggle();
     });
-}*/
+}
 
 map.on('click', onMapClick);
 

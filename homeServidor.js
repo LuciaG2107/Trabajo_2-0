@@ -1,18 +1,19 @@
 /**
- * ARCHIVO RERVIDOR 
- */
+* ARCHIVO SERVIDOR 
+*/
+
 
 var express = require("express");
+const { features } = require("process");
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var session = require('express-session');
-var morgan = require('morgan');
-
+//var morgan = require('morgan');
 var conectar = require('./mariadb_conector.js');
 //const { cookie } = require("express-validator");
 
 var app = express();
-var PORT = 3300;
+var PORTL= 3300;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -44,15 +45,16 @@ app.use(express.static('./media'));
 app.use(express.static('./controles'));
 
 app.get('/', function(req, res){
-    res.send('/home')
+    res.send('/home.html')
 })
 
 
 
-var registrar = require('./controles/registro-contol')
+var registroControl = require('./controles/registro-contol')
+var autenticarControl = require('./controles/autenticar-control')
 
-app.use('/signup.html', registrar);
-/*app.get('/login', function(req, res){
+//app.use('/signup.html', registrar);
+app.get('/login', function(req, res){
     res.sendFile(__dirname ,"./login.html");
 })
 app.get('/signup', function(req, res){
@@ -60,7 +62,7 @@ app.get('/signup', function(req, res){
     /*let correo = req.params.correo
     let contras = req.params.contra
     agregarContacto(correo, contras)*/
-//})
+})
 /*app.get('./controles/registro-contol', function(req, res){
     res.sendFile("./signup.html")
 })
@@ -69,10 +71,10 @@ app.get('./controles/autenticar-control', function(req, res){
 })*/
 
 //console.log(autenticarControl);
-/*app.post('./controles/autenticar-control',autenticarControl.authenticate);
-app.post('./controles/registro-control',registroControl.authenticate);*/
+app.post('./controles/autenticar-control',autenticarControl.authenticate);
+app.post('./controles/registro-control',registroControl.authenticate);
 
-//app.post('./signup', function(que, res){
+/*app.post('./registro', function(que, res){
    //var password = cryptr.encrypt(req.body.contrasenna);
     //var correoUsuario = req.body.correoUsuario;
     /*conectar.serialize(() => {
@@ -102,7 +104,7 @@ app.post('./controles/registro-control',registroControl.authenticate);*/
     });
 });
 
-app.post('login', function(que, res){
+app.post('/autenticar', function(req, res){
     var correoUsuario = req.body.correoUsuario;
     var contasenna = req.body.contasenna;
 
@@ -121,7 +123,6 @@ app.post('login', function(que, res){
                         status: true,
                         message: 'Autentificacion con exito'
                     })
-                    console.log("HOLA CARA DE MONO")
                 }else{
                     res.json({
                         status: false,
@@ -136,7 +137,7 @@ app.post('login', function(que, res){
             }
         }
     });
-});
+});*/
 
 
 

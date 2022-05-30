@@ -24,9 +24,9 @@
   "name": "trabajo_2-0",
   "version": "1.0.0",
   "description": "Proyecto de pagina web con mapa interactivo",
-  "main": "homeServidor.js",
+  "main": "testServer.js",
   "scripts": {
-    "dev": "nodemon homeServidor.js"
+    "dev": "nodemon testServer.js"
   },
   "repository": {
     "type": "git",
