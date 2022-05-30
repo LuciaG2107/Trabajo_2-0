@@ -18,7 +18,7 @@ var mysql = require('mysql');
 const session = require('express-session');
 
 var host = 'localhost';
-var port = 9080;
+var port = 8080;
 
 /*SERVIDOR*/
 
@@ -71,6 +71,7 @@ app.get('/signup', function (req, res) {
         });
 });
 app.post('/signup', function (req, res) {
+    console.log("HOLA");
     //variables
     var correoUsuario = req.body.correoUsuario;
     var contrasenna = req.body.contrasenna;
@@ -79,10 +80,9 @@ app.post('/signup', function (req, res) {
     res.write('Tu correo "' + req.body.correoUsuario + '".\n');
     res.write('Tu contraseña "' + req.body.contrasenna + '".\n');
 
-    const conexion = database.creaConexion;
-    if (confirmar_contrasenna == contrasennacon) {
-        conectar.connect(function (err) {
-            if (err) throw err;
+    //if (confirmar_contrasenna == contrasenna) {
+        conectar.connect(function (err, result, fields) {
+            if (err ) throw err;
             var sql = "INSERT INTO usuario (correoUsuario, contrasenna) VALUES ('" + correoUsuario + "', '" + contrasenna + "')";
 
             con.query(sql, function (err, result) {
@@ -94,19 +94,16 @@ app.post('/signup', function (req, res) {
                             if (err) throw err;
                             console.log(result.affectedRows + " record(s) updated");
                         });
-                        res.end();
                     } else {
                         throw err;
-                        res.end();
                     }
                 }
                 console.log("1 record inserted");
-                res.end();
             });
         });
-    } else {
+    /*} else {
         console.log("Contraseñas diferentes.")
-    }
+    }*/
 });
 
 //login
