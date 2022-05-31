@@ -40,7 +40,7 @@ var onMapClick = function (e) {
 }
 
 /**
- * Pulsar y salta un mensaje (tambien se añade un marcador a la vez)
+ * Pulsar y salta un mensaje (tambien se añade un marcador a la vez) y foto
  */
 var popup = L.popup();
 
@@ -113,6 +113,9 @@ L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
 function onMapClick(e) {
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
         sidebar.toggle();
+        var latlng = e.latlng;
+        var pixelPosition = map.latLngToLayerPoint(latlng);
+        alert("LatLng = " + latlng + "\n Pixel position = " + pixelPosition);
     });
 }
 

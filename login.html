@@ -56,14 +56,14 @@
             <div class="row align-items-start">
                 <!--map/login start-->
                 <div class="col-12 col-sm-4 mt-4">
-                    <a href="index.html" class="row text-decoration-none">
+                    <a href="index.html#aboutWeb" class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
-                            <img src="media/travel.jpg" alt="Mapa" class="img-fluid" width="553" height="746"
+                            <img src="media/sos.png" alt="Mapa" class="img-fluid" width="553" height="746"
                                 loading="lazy">
                         </div>
                         <div class="col-10">
-                            <h3>Mapa interactivo</h3>
-                            <p>Guarda guarda fotos</p>
+                            <h3>SOS: INFORMACION</h3>
+                            <p>Si no sabes utilizar esta pagina, hay una zona que te esplica facilmente.</p>
                             <p>Ir <i class="bi bi-arrow-right-short"></i></p>
                         </div>
                     </a>
@@ -72,14 +72,14 @@
 
                 <!--about us start-->
                 <div class="col-12 col-sm-4 mt-4">
-                    <a href="#" class="row text-decoration-none">
+                    <a href="map.html" class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
-                            <img src="media/contact.jpg" alt="about" class="img-fluid" width="553" height="746"
+                            <img src="media/map.png" alt="about" class="img-fluid" width="553" height="746"
                                 loading="lazy">
                         </div>
                         <div class="col-10">
-                            <h3>Sobre nosotros y contactos</h3>
-                            <p>Find out more about our Surprising Benefits</p>
+                            <h3>MAPA</h3>
+                            <p>Mapa interativo y agradable.</p>
                             <p>Ir <i class="bi bi-arrow-right-short"></i></p>
                         </div>
                     </a>
@@ -90,12 +90,12 @@
                 <div class="col-12 col-sm-4 mt-4">
                     <a href="login.html" class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
-                            <img src="media/login.jpg" alt="crear-cuenta" class="img-fluid" width="553" height="746"
+                            <img src="media/login.png" alt="crear-cuenta" class="img-fluid" width="553" height="746"
                                 loading="lazy">
                         </div>
                         <div class="col-10">
-                            <h3>NO SE</h3>
-                            <p>Find out more about our Essential Nutrients</p>
+                            <h3>SIGN UP</h3>
+                            <p>Si no tienes cuenta registrate ahora.</p>
                             <p>Ir <i class="bi bi-arrow-right-short"></i></p>
                         </div>
                     </a>
@@ -126,7 +126,7 @@
                 <div class="auth-card">
                     <!--logo start-->
                     <div class="logo-area">
-                        <img src="media/login.jpg" alt="" id="header-logo" class="logo" />
+                        <img src="media/webLogIn.png" alt="" id="header-logo" class="logo" />
                     </div>
                     <!--logo end-->
 
@@ -135,7 +135,7 @@
                         <!--email start-->
                         <div class="mb-2 mt-5">
                             <input type="email" class="form-control auth-input" placeholder="E-Mail Adresse"
-                                aria-describedby="emailHelp" autocomplete="username" id="correoUsuario" required />
+                                aria-describedby="emailHelp" autocomplete="username" id="correoUsuario" name="correoUsuario" required />
                             <div id="emailhelp" class="form-text input-info-text">Introduce el email.</div>
                         </div>
                         <!--email end-->
@@ -143,13 +143,14 @@
                         <!--password start-->
                         <div class="mb-2">
                             <input type="password" class="form-control auth-input" placeholder="Passwort"
-                                autocomplete="current-password" id="contrasenna" required />
+                                autocomplete="current-password" id="contrasenna" name="contrasenna" required />
                         </div>
                         <!--password end-->
 
                         <!--btn login start-->
                         <!--hindex.htmlref=""-->
-                        <button type="submit" class="btn auth-btn mt-2 mb-4" id="btn_agregar" ><a href="/map.html" class="text-link">Iniciar</a></button>
+                        <!--<button type="submit" class="btn auth-btn mt-2 mb-4" id="btn_agregar" ><a href="/map.html" class="text-link">Iniciar</a></button>-->
+                        <input type="submit" class="btn auth-btn mt-2 mb-4" id="btn_inicio"></input>
                         <!--btn login end-->
                     </form>
                     <!--login-form end-->
