@@ -93,7 +93,7 @@ map.fitBounds([
 
 palacioCristalMarker.bindPopup(template);*/
 
-/**leaflet-sidebar*/
+/**leaflet-sidebar: es la ventana que sale a la izquierda*/
 var sidebar = L.control.sidebar('sidebar', {
     autopan: false,       // whether to maintain the centered map point when opening the sidebar
     closeButton: true,    // whether t add a close button to the panes
@@ -103,28 +103,25 @@ var sidebar = L.control.sidebar('sidebar', {
 /*setTimeout(function () {
     sidebar.show();
 }, 500);*/
-var marker = L.marker([40.4175955964789, -3.7173034972414425]).addTo(map).on('click', function () {
+/*var marker = L.marker([40.4175955964789, -3.7173034972414425]).addTo(map).on('click', function () {
     sidebar.toggle();
-});
+});*/
 
 L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
     sidebar.toggle();
 });
+/** Para pasar de coordeladas latitud y longitud a Point (son dos números enteros)*/
 function onMapClick(e) {
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
         sidebar.toggle();
         var latlng = e.latlng;
         var pixelPosition = map.latLngToLayerPoint(latlng);
-        alert("LatLng = " + latlng + "\n Pixel position = " + pixelPosition);
+        //alert("LatLng = " + latlng + "\n Pixel position = " + pixelPosition);
     });
 }
 
 map.on('click', onMapClick);
 
-/**botones para guardar y eliminar imagenes */
-$('#addFoto').on('click', function(event){
-    
-});
 
 map.on('click', function () {
     sidebar.hide();
@@ -149,4 +146,9 @@ sidebar.on('hidden', function () {
 L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
     console.log('Close button clicked.');
 });
+
+/**botones para guardar y eliminar imagenes */
+//*$('#addFoto').on('click', function(event){
+    
+//});
 

@@ -1,18 +1,14 @@
 /*SERVIDOR Y BASE DE DATOS*/
 
-/*Variables y constantes de Servidor*/
 const http = require("http");
 var express = require("express");
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const { features } = require("process");
 const fs = require('fs').promises;
 const path = require('path');
-
-
-
-/*Variables y constantes de Base de datos*/
 var mysql = require('mysql');
-//const database = require('./database.js');
-const session = require('express-session');
+
 
 /*SERVIDOR*/
 var app = express();
@@ -43,6 +39,8 @@ app.get('/', function (req, res) {
 
 /*BASE DE DATOS*/
 
+app.use(cookieParser());
+
 //conexion 
 var conectar = mysql.createConnection({
     user: 'root',
@@ -58,7 +56,8 @@ conectar.connect(function (error) {
         console.log("Conectado");
     }
 });
-/*Signup*/
+
+/**Signup*/
 app.get('/signup', function (req, res) {
     fs.readFile(__dirname + "/signup.html")
         .then(contents => {
@@ -79,16 +78,11 @@ app.post('/signup', function (req, res) {
     var contrasenna = req.body.contrasenna;
     var confirmar_contrasenna = req.body.confirmar_contrasenna;
 
-    /*res.write('Tu correo "' + req.body.correoUsuario + '".\n');
-    res.write('Tu contraseña "' + req.body.contrasenna + '".\n');*/
     console.log("QQQQQQ");
     //const selectBD = () => {
     console.log("QUE TAL?");
     //if (confirmar_contrasenna == contrasenna) {
     conectar.connect(function (err) {
-        //if (!err){
-        //var sql = "INSERT INTO usuario (correoUsuario, contrasenna) VALUES ('" + correoUsuario + "', '" + contrasenna + "')";
-
         conectar.query("INSERT INTO usuario (correoUsuario, contrasenna) VALUES ('" + correoUsuario + "', '" + contrasenna + "')", function (err, result, fields) {
             if (err) {
                 if (err.errno == 1062) {
@@ -121,10 +115,9 @@ app.post('/signup', function (req, res) {
     });
 });
 
-
-//login
+/**login*/
 app.use(session({
-    secret: 'keyboard cat',
+    secret: '2C44-4D44-WppQ38S',
     resave: false,
     saveUninitialized: true
 }))
@@ -152,7 +145,8 @@ app.post('/login', function (req, res) {
             console.log(results.length)
         } else if (contrasenna == results[0].contrasenna) {
             console.log("Contraseña correcta")
-            req.session.user = correoUsuario;
+            req.session.usuario = correoUsuario;
+            //req.session.contrasenna = contrasenna;
             res.redirect("/")
             
         } else {
@@ -161,16 +155,16 @@ app.post('/login', function (req, res) {
     });
 });
 
+
+
 //map 
 app.get('/map', function (req, res) {
-    console.log(req.session.user)
-    ///if(req.session.user==null){
-        //console.log("No hay usuario:")
-    //}else{
+    console.log("estoy en el mapa");
+    console.log(req.session);
         fs.readFile(__dirname + "/map.html")
         .then(contents => {
             res.setHeader("Content-Type", "text/html");
-            res.writeHead(201);
+            res.writeHead(200);
             res.end(contents);
         })
         .catch(err => {
@@ -178,20 +172,20 @@ app.get('/map', function (req, res) {
             res.end(err);
             return;
         });
-});
-/*conectar.query('SELECT * FROM usuario  WHERE correoUsuario ="' + correoUsuario + '"', function (err, results, fields) {
-    console.log(results)
-    if (results.length == 0) {
-        //compara el correo -> comprueba si exitre el usuario
-        console.log(results.length)
-    } else if(contrasenna == results[0].contrasenna) {
-        console.log("Contraseña correcta")
-        req.session.user = correoUsuario;
-    }else{
-        console.log("Contraseña no correcta")
-    }
-});*/
 
+});
+
+
+
+
+
+
+
+
+
+
+
+/**PUERTO DONDE ESCUCHA*/
 app.listen(port, function () {
     console.log(`Server is running on http://${host}:${port}`);
 });

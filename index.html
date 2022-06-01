@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WebMap</title>
+    <title>MAPTOS</title>
 
     <!--CSS-->
     <!--Bootstrap-->
@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Montserrat:wght@400;700&display=swap"
         rel="stylesheet" />
     <!--Home-->
-    <link rel="stylesheet" type="text/css" href="css/home.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <!--icono start-->
             <a href="" class="text-decoration-none text-white fs-5 fw-bold">
                 <img src="media/icono.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
-                MapWeb
+                MAPTOS
             </a>
             <!--icono end-->
 
@@ -64,7 +64,7 @@
             <div class="row align-items-start">
                 <!--map/login start-->
                 <div class="col-12 col-sm-4 mt-4">
-                    <a href="map.html" class="row text-decoration-none">
+                    <div class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
                             <img src="media/map.png" alt="mapa" class="img-fluid" width="553" height="746"
                                 loading="lazy">
@@ -72,15 +72,17 @@
                         <div class="col-10">
                             <h3>MAPA</h3>
                             <p>Mapa interativo y agradable.</p>
-                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                            <a href="/map">
+                                <button>Ir<i class="bi bi-arrow-right-short"></i></button>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <!--map end-->
 
-                <!--about us start-->
+                <!--info start-->
                 <div class="col-12 col-sm-4 mt-4">
-                    <a href="#aboutWeb" class="row text-decoration-none">
+                    <div class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
                             <img src="media/sos.png" alt="about" class="img-fluid" width="553" height="746"
                                 loading="lazy">
@@ -88,43 +90,32 @@
                         <div class="col-10">
                             <h3>SOS: INFORMACION</h3>
                             <p>Si no sabes utilizar esta pagina, hay una zona que te esplica facilmente.</p>
-                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                            <a href="#aboutWeb">
+                                <button>Ir<i class="bi bi-arrow-right-short"></i></button>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <!--about us end-->
+                <!--info end-->
 
                 <!--login start-->
                 <div class="col-12 col-sm-4 mt-4">
-                    <a href="login.html" class="row text-decoration-none">
+                    <div class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
                             <img src="media/login.png" alt="crear-cuenta" class="img-fluid" width="553" height="746"
                                 loading="lazy">
                         </div>
-                        <div class="col-10">
+                        <div id="cambio" class="col-10">
                             <h3>LOG IN</h3>
                             <p>Inicia sesión con tu cuenta.</p>
-                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                            <a href="/login">
+                                <button>Ir<i class="bi bi-arrow-right-short"></i></button>
+                            </a>
                         </div>
-                    </a>
+                        <input type="button" onclick='cambiar()'/>
+                    </div>
                 </div>
                 <!--login end-->
-
-                <!--perfil start-->
-                <!--<div class="col-12 col-sm-4 mt-4">
-                    <a href="" class="row text-decoration-none">
-                        <div class="col-2 col-sm-12 mb-4">
-                            <img src="media/friend.jpg" alt="perfil" class="img-fluid" width="553" height="746"
-                                loading="lazy">
-                        </div>
-                        <div class="col-10">
-                            <h3>Perfil</h3>
-                            <p>Find out more about our Essential Nutrients</p>
-                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
-                        </div>
-                    </a>
-                </div>-->
-                <!--perfil end-->
             </div>
             <!--row end-->
 
@@ -160,14 +151,14 @@
                 <div class="text-white">
                     <h1 class="panel__heading fw-bold mb-4">Bienvenido</h1>
                     <p class="lead mb-4">Si eres nuevo en nuestra pagina web crea una cuenta.</p>
-                    <a href="signup.html" class="mt-2 btn btn-lg btn-outline-light" role="button">crear cuenta</a>
+                    <a href="signup.html" class="mt-2 btn btn-lg btn-outline-light" role="button">Crea cuenta</a>
                 </div>
             </div>
         </div>
         <!--content panel end-->
 
         <a href="#scroll-down" class="panel__scroll-btn">
-            Explore <i class="bi bi-arrow-down-short"></i>
+            Explora <i class="bi bi-arrow-down-short"></i>
         </a>
     </section>
     <!--Mein panel End-->
@@ -175,10 +166,24 @@
     <a id="scroll-down"></a>
 
     <!--Section of the Menu Start-->
+    <section class="steps steps--background">
+        <div class="justify-content-ceneter" id="aboutWeb">
+            <!--content start-->
+            <div class="steps__content-width">
+                <h1 class="h1 mb-4">SOS: INFORMACION</h1>
+                <p class="mb-4">
+                    Apartado explicamos como funciona la aplicacion, por pasos de forma sencilla y agradable cualquier publico.<br/>
+                    En cada apartado habra un video corto donde podras ver de forma visual como se hace el paso.<br/>
+                    Al final, podras ver información de la empresa y sus privacidades.
+                </p>
+            </div>
+            <!--content end-->
+        </div>
+    </section>
     <!--section one start-->
     <section class="steps container-custom">
         <!--row start-->
-        <div class="row">
+        <div class="row" id="aboutWeb">
             <!--img start-->
             <div class="col-12 col-sm-6 d-md-flex justify-content-md-ceneter">
                 <img src="media/travel.jpg" alt="mapa" class="img-fluid pb-4 steps__section-thumbnail" width="553"
@@ -194,7 +199,6 @@
                     <p class="mb-4">Mapa interactivo donde podras sellecionar o buscar lugares y guardar tus fotos con
                         marcadores.
                     </p>
-                    <a href="index.html">Más información<i class="bi bi-arrow-right"></i></a>
                 </div>
                 <!--content end-->
             </div>
@@ -221,7 +225,6 @@
                         <span>02</span>
                         <h1 class="h2 mb-4">SOS: INFORMACION</h1>
                         <p class="mb-4">Si no sabes utilizar esta pagina, hay una zona que te esplica facilmente.</p>
-                        <a href="#aboutWeb">Más información<i class="bi bi-arrow-right"></i></a>
                     </div>
                     <!--content end-->
                 </div>
@@ -246,9 +249,8 @@
                 <!--content start-->
                 <div class="steps__content-width">
                     <span>03</span>
-                    <h1>Perfil</h1>
-                    <p>Nvdfvsdfvsfgbgfvxdf.</p>
-                    <a href="login.html">Más información<i class="bi bi-arrow-right"></i></a>
+                    <h1 class="h2 mb-4">SOS: INFORMACION</h1>
+                    <p class="mb-4">Si no sabes utilizar esta pagina, hay una zona que te esplica facilmente.</p>
                 </div>
                 <!--content end-->
             </div>
@@ -260,7 +262,7 @@
 
     <!--Section About Start-->
     <section class="bg-dark text-white py-4">
-        <div id="aboutWeb" class="container-custom my-4">
+        <div class="container-custom my-4">
             <!--row start-->
             <div class="row">
                 <!--column one start-->
@@ -306,20 +308,6 @@
                 </a>
             </div>
             <!--copy end-->
-
-            <!--social media start-->
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex text-white">
-                <li class="ms-3">
-                    <a href="#" class="text-muted"><i class="bi bi-twitter"></i></a>
-                </li>
-                <li class="ms-3">
-                    <a href="#" class="text-muted"><i class="bi bi-instagram"></i></a>
-                </li>
-                <li class="ms-3">
-                    <a href="#" class="text-muted"><i class="bi bi-facebook"></i></a>
-                </li>
-            </ul>
-            <!--social media end-->
         </div>
     </footer>
     <!--Footer End-->
@@ -328,6 +316,7 @@
 
 
     <!--JS-->
+    <script src="cambio.js"></script>
     <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">

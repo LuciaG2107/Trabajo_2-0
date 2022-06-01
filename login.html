@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebMap</title>
+    <title>MAPTOS</title>
 
     <!--CSS-->
     <!--Bootstrap-->
@@ -19,16 +19,14 @@
     <link rel="stylesheet" href="../css/loginsignup.css" />
 </head>
 
-</html>
-
 <body>
     <!--Header Start-->
     <header class="header p-3 position-absolute start-0 top-0 end-0">
         <div class="d-flex justify-content-between align-items-center">
             <!--icono start-->
-            <a href="home.html" class="text-decoration-none text-white fs-5 fw-bold">
+            <a href="/" class="text-decoration-none text-white fs-5 fw-bold">
                 <img src="media/icono.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
-                MapWeb
+                MAPTOS
             </a>
             <!--icono end-->
 
@@ -54,9 +52,9 @@
         <div class="dropdown-nav__container container-xxl d-flex align-items-start align-items-md-center">
             <!--row start-->
             <div class="row align-items-start">
-                <!--map/login start-->
+                <!--info start-->
                 <div class="col-12 col-sm-4 mt-4">
-                    <a href="index.html#aboutWeb" class="row text-decoration-none">
+                    <div class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
                             <img src="media/sos.png" alt="Mapa" class="img-fluid" width="553" height="746"
                                 loading="lazy">
@@ -64,15 +62,17 @@
                         <div class="col-10">
                             <h3>SOS: INFORMACION</h3>
                             <p>Si no sabes utilizar esta pagina, hay una zona que te esplica facilmente.</p>
-                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                            <a href="index.html#aboutWeb">
+                                <button>Ir<i class="bi bi-arrow-right-short"></i></button>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <!--map end-->
+                <!--info end-->
 
-                <!--about us start-->
+                <!--mapa start-->
                 <div class="col-12 col-sm-4 mt-4">
-                    <a href="map.html" class="row text-decoration-none">
+                    <div class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
                             <img src="media/map.png" alt="about" class="img-fluid" width="553" height="746"
                                 loading="lazy">
@@ -80,15 +80,17 @@
                         <div class="col-10">
                             <h3>MAPA</h3>
                             <p>Mapa interativo y agradable.</p>
-                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                            <a href="/map">
+                                <button>Ir<i class="bi bi-arrow-right-short"></i></button>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <!--about us end-->
+                <!--mapa end-->
 
-                <!--crear cuenta start-->
+                <!--signup start-->
                 <div class="col-12 col-sm-4 mt-4">
-                    <a href="login.html" class="row text-decoration-none">
+                    <div class="row text-decoration-none">
                         <div class="col-2 col-sm-12 mb-4">
                             <img src="media/login.png" alt="crear-cuenta" class="img-fluid" width="553" height="746"
                                 loading="lazy">
@@ -96,11 +98,13 @@
                         <div class="col-10">
                             <h3>SIGN UP</h3>
                             <p>Si no tienes cuenta registrate ahora.</p>
-                            <p>Ir <i class="bi bi-arrow-right-short"></i></p>
+                            <a href="/signup">
+                                <button>Ir<i class="bi bi-arrow-right-short"></i></button>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <!--crear cuenta end-->
+                <!--signup end-->
             </div>
             <!--row end-->
 
@@ -135,7 +139,8 @@
                         <!--email start-->
                         <div class="mb-2 mt-5">
                             <input type="email" class="form-control auth-input" placeholder="E-Mail Adresse"
-                                aria-describedby="emailHelp" autocomplete="username" id="correoUsuario" name="correoUsuario" required />
+                                aria-describedby="emailHelp" autocomplete="username" id="correoUsuario"
+                                name="correoUsuario" required />
                             <div id="emailhelp" class="form-text input-info-text">Introduce el email.</div>
                         </div>
                         <!--email end-->
@@ -155,7 +160,7 @@
                     </form>
                     <!--login-form end-->
 
-                    <p class="text mb-4">¿No tienes cuenta?<a href="/signup.html" class="text-link">Crea cuenta</a></p>
+                    <p class="text mb-4">¿No tienes cuenta?<a href="/signup" class="text-link">Crea cuenta</a></p>
                 </div>
             </div>
         </div>
@@ -164,9 +169,11 @@
 
     <!--JS-->
     <!--Funciones: Login -->
-    
+
     <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
         </script>
 </body>
+
+</html>
