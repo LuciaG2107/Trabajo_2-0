@@ -1,0 +1,55 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Name":"Getafe, Madrid"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.0038299560546875,
+                    39.86547951378614
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name":"Leganes, Madrid"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.7229919433593746,
+                    40.4626214924114
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name":"Tetuan, Madrid"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.736724853515625,
+                    40.3130432088809
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.7679672241210938,
+                    40.329795743702064
+                ]
+            }
+        }
+    ]
+}
