@@ -72,10 +72,14 @@
                         <div class="col-10">
                             <h3>MAPA</h3>
                             <p>Mapa interativo y agradable.</p>
-                            <a href="/map">
+                            <a href="/map.html">
                                 <button>Ir<i class="bi bi-arrow-right-short"></i></button>
                             </a>
                         </div>
+                        
+                        <input type="button" id="btn_map" onclick="btn_inicioMap()"></input>
+                        
+
                     </div>
                 </div>
                 <!--map end-->
@@ -111,8 +115,15 @@
                             <a href="/login">
                                 <button>Ir<i class="bi bi-arrow-right-short"></i></button>
                             </a>
+                            <!--<a href="/logout">
+                                <button>Cerrar<i class="bi bi-arrow-right-short"></i></button>
+                            </a>-->
                         </div>
-                        <input type="button" onclick='cambiar()'/>
+                        <!--botonn cerrar-->
+                        <a href="/login">
+                            <input type="button" id="btn_cerrar" onclick="btn_pruebaLogout()"></input>
+                        </a>
+
                     </div>
                 </div>
                 <!--login end-->
@@ -172,8 +183,9 @@
             <div class="steps__content-width">
                 <h1 class="h1 mb-4">SOS: INFORMACION</h1>
                 <p class="mb-4">
-                    Apartado explicamos como funciona la aplicacion, por pasos de forma sencilla y agradable cualquier publico.<br/>
-                    En cada apartado habra un video corto donde podras ver de forma visual como se hace el paso.<br/>
+                    Apartado explicamos como funciona la aplicacion, por pasos de forma sencilla y agradable cualquier
+                    publico.<br />
+                    En cada apartado habra un video corto donde podras ver de forma visual como se hace el paso.<br />
                     Al final, podras ver información de la empresa y sus privacidades.
                 </p>
             </div>
@@ -316,7 +328,8 @@
 
 
     <!--JS-->
-    <script src="cambio.js"></script>
+    <script src="/index.js"></script>
+    <script src="/map.js"></script>
     <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">

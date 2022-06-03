@@ -1,3 +1,4 @@
+/**SERVIDOR Y COMUNICACION CON LA BASE DA DETOS => BACKEND*/
 /*SERVIDOR Y BASE DE DATOS*/
 
 const http = require("http");
@@ -100,7 +101,7 @@ app.post('/signup', function (req, res) {
                 }
             }
             console.log("1 record inserted");
-            fs.readFile(__dirname + "/index.html")
+            fs.readFile(__dirname + "/login")
                 .then(contents => {
                     res.setHeader("Content-Type", "text/html");
                     res.writeHead(200);
@@ -147,31 +148,54 @@ app.post('/login', function (req, res) {
             console.log("Contraseña correcta")
             req.session.usuario = correoUsuario;
             //req.session.contrasenna = contrasenna;
+
+            //se cambia el  contenido
+            console.log("entra usuario")
+
+            //redirige a la pagina principal
             res.redirect("/")
-            
         } else {
             console.log("Contraseña no correcta")
         }
     });
 });
 
-
+//cerrar sesion
+app.get('/logout', function (req, res) {
+    //saber si hay sesion
+    console.log(req.session.usuario)
+    if (req.session.usuario !== null) {
+        console.log("cambiar el div del menu de la parte Login")
+        req.session.usuario == null
+        res.redirect("/signup")
+        console.log(req.session.usuario)
+    }else{
+        console.log("Sacar mensje de que no ha logeado el usuario")
+    }
+});
+app.get('/test', function(req, res){
+    console.log("Hola")
+    res.send('Hola mundo');
+    res.end()
+});
 
 //map 
-app.get('/map', function (req, res) {
-    console.log("estoy en el mapa");
-    console.log(req.session);
-        fs.readFile(__dirname + "/map.html")
-        .then(contents => {
-            res.setHeader("Content-Type", "text/html");
-            res.writeHead(200);
-            res.end(contents);
-        })
-        .catch(err => {
-            res.writeHead(500);
-            res.end(err);
-            return;
+app.get('/map', async function (req, res) {
+    console.log(req.session.session);
+    
+    //if(req.session.usuario !== null){
+    conectar.query("SELECT longitud, latitud, nomMarca  FROM usuario INNER JOIN marcador ON usuario.correoUsuario=marcador.correoUsuario_usuario;", function(err, results, fields){
+        console.log(results)
+        res.send(results);
+        fs.writeFile('coordenadas.json', JSON.stringify(results), 'utf8', (err) => {
+            if (err) throw err;
+            console.log('Se guardo el archivo json de las coordenadas');
         });
+    });
+        
+    //}else{
+      //  console.log("Sacar mensje de que no ha logeado el usuario")
+    //}
 
 });
 

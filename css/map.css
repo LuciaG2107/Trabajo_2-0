@@ -6,7 +6,7 @@
     bottom: 0;
 }
 
-/*licks*/
+/*link*/
 a {
     color: var(--primary-color);
 }
@@ -49,6 +49,10 @@ a:hover {
 /**Sidebar*/
 body>#sidebar {
     display: none;
+}
+
+.carousel{
+    justify-content: center;
 }
 
 #sidebar {

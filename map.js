@@ -1,22 +1,19 @@
-
-/*tileLayer.provider('OpenStreetMap.Mapnik').addTo(new Map('map').setView([40.4346352, -3.767012], 10));*/
-
+/**FRONTEND MAPA */
 /*Creamos el mapa y lo posicionamos*/
-/*var map = L.map('map').setView([40.4346352, -3.767012], 10);*/
 var map = L.map('map').setView([0, 0], 10);
+
+
 var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 16,
     minZoom: 3,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+
 /**
  * Botones zoom
  */
 L.control.zoom({position: "bottomleft"}).addTo(map);
-
-/**Control del Zoom */
-
 
 
 
@@ -31,13 +28,6 @@ var redMarker = L.ExtraMarkers.icon({
 });
 L.marker([51.941196, 4.512291], { icon: redMarker }).addTo(map);
 
-/**
- * Pulsar y añade marcador
- */
-/*map.on('click', onMapClick);
-var onMapClick = function (e) {
-    
-}
 
 /**
  * Pulsar y salta un mensaje (tambien se añade un marcador a la vez) y foto
@@ -48,12 +38,7 @@ function onMapClick(e) {
     var marker = L.marker([e.latlng.lat, e.latlng.lng], {
       
     }).addTo(map).bindPopup(popup.setContent('<img src="media/travel.jpg" height="150px" width="150px"/><p>Pagina Home que sera la pagina donde se añada, se borren fotos</p>'));
-    /*popup
-        .setLatLng(e.latlng) // Sets the geographical point where the popup will open.
-        .setContent('<a href="home.html">Pagina Home que sera la pagina donde se añada, se borren fotos</a>')
-        .openOn(map); // Adds the popup to the map and closes the previous one. 
-*/
-    }
+}
 
 map.on('click', onMapClick);
 
@@ -72,7 +57,6 @@ map.addControl(new L.Control.Search({
     minLength: 2
 }));
 
-/*var OpenStreetMap_DE = L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(L.map('map').setView([40.4346352, -3.767012], 10));
 /**Creamos un marcador manual*/
 const palacioMadridMarker = L.marker([40.4175955964789, -3.7173034972414425]).addTo(map);
 const palacioCristalMarker = L.marker([40.411515, -3.6861627]).addTo(map);
@@ -84,28 +68,13 @@ map.fitBounds([
     [eSantiagoBernabéuMarker.getLatLng().lat, eSantiagoBernabéuMarker.getLatLng().lng]
 ]);
 
-/*let template = `
-<h3>Empire State Building</h3>
-<div style="text-align:center">
-    <img width="150" height="150" src="media/fondo.jpg"/>
-</div>
-`
-
-palacioCristalMarker.bindPopup(template);*/
-
 /**leaflet-sidebar: es la ventana que sale a la izquierda*/
 var sidebar = L.control.sidebar('sidebar', {
-    autopan: false,       // whether to maintain the centered map point when opening the sidebar
-    closeButton: true,    // whether t add a close button to the panes
-    container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
+    autopan: false,       
+    closeButton: true,    
+    container: 'sidebar', 
     position: 'left'
 }).addTo(map);
-/*setTimeout(function () {
-    sidebar.show();
-}, 500);*/
-/*var marker = L.marker([40.4175955964789, -3.7173034972414425]).addTo(map).on('click', function () {
-    sidebar.toggle();
-});*/
 
 L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('click', function(){
     sidebar.toggle();
@@ -116,7 +85,7 @@ function onMapClick(e) {
         sidebar.toggle();
         var latlng = e.latlng;
         var pixelPosition = map.latLngToLayerPoint(latlng);
-        //alert("LatLng = " + latlng + "\n Pixel position = " + pixelPosition);
+        alert("LatLng = " + latlng + "\n Pixel position = " + pixelPosition);
     });
 }
 
@@ -147,8 +116,20 @@ L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
     console.log('Close button clicked.');
 });
 
-/**botones para guardar y eliminar imagenes */
-//*$('#addFoto').on('click', function(event){
-    
-//});
+/*botones para guardar y eliminar imagenes */
+
+
+/**Conexion entre el fronted y el backend*/
+function funcionre(mm){
+    window.location.replace("/map.html")
+    console.log(mm)
+}
+
+function addDataToMap(FeatureCollectio, map) {
+    var dataLayer = L.geoJson(FeatureCollectio);
+    dataLayer.addTo(map);
+}
+
+$.getJSON("map.geojson", function(data) { addDataToMap(data, map); });
+
 
