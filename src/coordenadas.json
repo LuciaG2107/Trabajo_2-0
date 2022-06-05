@@ -1,0 +1,34 @@
+{
+    "coordenadas":[
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.8111872,
+                    40.354043
+                ]
+            },
+            "properties": {
+                "name": "Parque De Los Castillos, Alcorcon",
+                "title": "Parque De Los Castillos, Alcorcon",
+                "imagen": "/src/media/alcorcon.jpg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.66712,
+                    40.96143
+                ]
+            },
+            "properties": {
+                "name": "Universidad",
+                "title": "Universidad de Salamanca",
+                "imagen": "Universidad_de_Salamanca.jpg"
+            }
+        }
+    ]
+}

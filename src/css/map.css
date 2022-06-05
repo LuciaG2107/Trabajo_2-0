@@ -1,0 +1,100 @@
+#map {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/*link*/
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+/**Header*/
+.header {
+    z-index: 2;
+    background-color: #233D54;
+}
+
+/**Flyout Navigation*/
+#navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #DCDCDC;
+    z-index: 5;
+}
+
+/*boton submit*/
+input[type=submit] {
+    background: url('/src/media/arrow.png');
+    background-position: center center;
+    border: 0;
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+
+/*close navigation butont*/
+.dropdown-nav__closeNavBtn {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    background-color: rgbA(255, 255, 255, 0.6);
+}
+
+/*container*/
+.dropdown-nav__container {
+    height: 100vh;
+    padding: 0 1rem;
+}
+
+/**Sidebar*/
+body>#sidebar {
+    display: none;
+}
+
+.carousel{
+    justify-content: center;
+}
+
+#sidebar {
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+/**Carrusel*/
+.carousel .item {
+    height: 300px;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
+
+/**Fotos popup*/
+.leaflet-popup-content {
+    padding: 1px;    
+    background:#f1b10e;
+    
+            }
+.leaflet-popup-content-wrapper{
+    background:#ebcb7a;
+        
+}
+.leaflet-popup-tip {
+    background:red;
+}
+.imgpop{
+width: 150px;
+}

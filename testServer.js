@@ -25,7 +25,7 @@ app.use(express.static(__dirname));
 //app.use(express.static(path.join(__dirname,'media')));
 
 app.get('/', function (req, res) {
-    fs.readFile(__dirname + "/home.html")
+    fs.readFile(__dirname + "/src/index.html")
         .then(contents => {
             res.setHeader("Content-Type", "text/html");
             res.writeHead(200);
@@ -33,7 +33,6 @@ app.get('/', function (req, res) {
         })
         .catch(err => {
             res.writeHead(500);
-            res.end(err);
             return;
         });
 });
@@ -60,7 +59,7 @@ conectar.connect(function (error) {
 
 /**Signup*/
 app.get('/signup', function (req, res) {
-    fs.readFile(__dirname + "/signup.html")
+    fs.readFile(__dirname + "/src/signup.html")
         .then(contents => {
             res.setHeader("Content-Type", "text/html");
             res.writeHead(201);
@@ -73,21 +72,15 @@ app.get('/signup', function (req, res) {
         });
 });
 app.post('/signup', function (req, res) {
-    console.log("HOLA");
     //variables
     var correoUsuario = req.body.correoUsuario;
     var contrasenna = req.body.contrasenna;
     var confirmar_contrasenna = req.body.confirmar_contrasenna;
 
-    console.log("QQQQQQ");
-    //const selectBD = () => {
-    console.log("QUE TAL?");
-    //if (confirmar_contrasenna == contrasenna) {
     conectar.connect(function (err) {
         conectar.query("INSERT INTO usuario (correoUsuario, contrasenna) VALUES ('" + correoUsuario + "', '" + contrasenna + "')", function (err, result, fields) {
             if (err) {
                 if (err.errno == 1062) {
-                    console.log("DENTRO DEL IF")
                     var sql = "UPDATE usuario SET correoUsuario ='" + correoUsuario + '",contrasenna ="' + contrasenna + '"';
                     console.log(sql);
                     conectar.query(sql, function (err, result) {
@@ -100,7 +93,6 @@ app.post('/signup', function (req, res) {
                     res.end();
                 }
             }
-            console.log("1 record inserted");
             fs.readFile(__dirname + "/login")
                 .then(contents => {
                     res.setHeader("Content-Type", "text/html");
@@ -123,7 +115,7 @@ app.use(session({
     saveUninitialized: true
 }))
 app.get('/login', function (req, res) {
-    fs.readFile(__dirname + "/login.html")
+    fs.readFile(__dirname + "/src/login.html")
         .then(contents => {
             res.setHeader("Content-Type", "text/html");
             res.writeHead(201);
@@ -165,48 +157,32 @@ app.get('/logout', function (req, res) {
     //saber si hay sesion
     console.log(req.session.usuario)
     if (req.session.usuario !== null) {
-        console.log("cambiar el div del menu de la parte Login")
         req.session.usuario == null
         res.redirect("/signup")
         console.log(req.session.usuario)
     }else{
-        console.log("Sacar mensje de que no ha logeado el usuario")
+        console.log("Adios")
     }
 });
-app.get('/test', function(req, res){
+/*app.get('/test', function(req, res){
     console.log("Hola")
     res.send('Hola mundo');
     res.end()
-});
+});*/
 
 //map 
 app.get('/map', async function (req, res) {
     console.log(req.session.session);
     
-    //if(req.session.usuario !== null){
     conectar.query("SELECT longitud, latitud, nomMarca  FROM usuario INNER JOIN marcador ON usuario.correoUsuario=marcador.correoUsuario_usuario;", function(err, results, fields){
         console.log(results)
         res.send(results);
         fs.writeFile('coordenadas.json', JSON.stringify(results), 'utf8', (err) => {
             if (err) throw err;
-            console.log('Se guardo el archivo json de las coordenadas');
         });
     });
-        
-    //}else{
-      //  console.log("Sacar mensje de que no ha logeado el usuario")
-    //}
 
 });
-
-
-
-
-
-
-
-
-
 
 
 /**PUERTO DONDE ESCUCHA*/

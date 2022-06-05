@@ -1,0 +1,107 @@
+/*Variables*/
+:root {
+    --primary-color: #0a1118;
+    --primary-color-highlight: #233D54;
+    --bs-body-bg: 	#DCDCDC;
+    --bs-body-font-family: 'Montserrat', sans-serif;
+}
+
+/*licks*/
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+/**Header*/
+.header {
+    z-index: 2;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-color-highlight));
+}
+
+/**Flyout Navigation*/
+#navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bs-body-bg);
+    z-index: 5;
+}
+
+/*boton submit*/
+input[type=submit] {
+    background: url('/src/media/arrow.png');
+    background-position: center center;
+    border: 0;
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+
+/*close navigation butont*/
+.dropdown-nav__closeNavBtn {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    background-color: rgbA(255, 255, 255, 0.6);
+}
+
+/*container*/
+.dropdown-nav__container {
+    height: 100vh;
+    padding: 0 1rem;
+}
+
+/**Signup and login*/
+.page-content {
+    margin-top: 78px;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-color-highlight));
+}
+
+.auth-card {
+    background-color: white;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 0.2);
+    border-radius: 20px;
+    padding: 10px 10%;
+}
+
+/*logo*/
+.logo-area {
+    padding: 20px 30%;
+    margin-top: 60px;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+}
+
+/*google/github*/
+.auth-title {
+    text-align: center;
+    color: rgb(46, 46, 46);
+}
+
+.service-btn {
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    width: 100%;
+    color: rgb(46, 46, 46);
+    height: 45px;
+    box-shadow: none !important;
+}
+
+.service-btn:hover {
+    color: #1da19b;
+    border: 1px solid #1da19b;
+}
+
+.service-icon {
+    margin-right: 10px;
+}
